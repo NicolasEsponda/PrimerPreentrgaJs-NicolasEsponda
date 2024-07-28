@@ -1,67 +1,67 @@
-// function startInteractiveCalculator() {
-//     // Lista de productos y precios
-//     const products = {
-//         'Producto A': 10,
-//         'Producto B': 20,
-//         'Producto C': 30,
-//         'Producto D': 15,
-//         'Producto E': 25,
-//         'Producto F': 35
-//     };
+alert("Bienvenidos a la tienda de celulares online");
+alert("Elija el producto que desea llevar, para salir ingrese 0");
 
-//     // Mostrar los productos disponibles
-//     let productList = 'Productos disponibles:\n';
-//     for (const [product, price] of Object.entries(products)) {
-//         productList += `${product} - $${price}\n`;
-//     }
-//     productList += 'Ingrese el nombre del producto (o "salir" para terminar):';
+let productos = Number(prompt("1-Samsung $130000 2-Iphone $150000 3-Xiaomi $50000 4-Nokia $65000 5-Motorola $120000"));
+let seleccionarCantidad;
+let total = 0;
 
-//     let total = 0;
-//     while (true) {
-//         // Solicitar el nombre del producto
-//         let productName = prompt(productList);
-//         if (productName === null || productName.toLowerCase() === 'salir') break;
+const calcularTotal = (cantidad, precio) => {
+  return cantidad * precio;
+};
 
-//         // Verificar si el producto existe
-//         if (!products[productName]) {
-//             alert('Producto no encontrado. Intente nuevamente.');
-//             continue;
-//         }
-
-//         // Solicitar la cantidad
-//         let quantity = parseInt(prompt(`Ingrese la cantidad para ${productName}:`));
-//         if (isNaN(quantity) || quantity <= 0) {
-//             alert('Cantidad no válida. Intente nuevamente.');
-//             continue;
-//         }
-
-//         // Calcular el monto
-//         const productPrice = products[productName];
-//         const amount = productPrice * quantity;
-//         total += amount;
-
-//         // Mostrar el monto en la consola
-//         console.log(`${productName} - $${productPrice} x ${quantity} = $${amount.toFixed(2)}`);
-//     }
-
-//     // Mostrar el monto total en la consola
-//     console.log(`Monto Total: $${total.toFixed(2)}`);
-// }
-
-console.log("hola");
-
-Como se declara una funcion y cual es su estructura
-function nombreDeLaFuncion() {
-    //¿Que va a hacer? Lo que Yo le diga que haga..!!!
+while (productos != 0) {
+  switch (productos) {
+    case 1:
+      seleccionarCantidad = Number(prompt("El producto seleccionado es Samsung, indique la cantidad"));
+      total += calcularTotal(seleccionarCantidad, 130000);
+      break;
+    case 2:
+      seleccionarCantidad = Number(prompt("El producto seleccionado es iPhone, indique la cantidad"));
+      total += calcularTotal(seleccionarCantidad, 150000);
+      break;
+    case 3:
+      seleccionarCantidad = Number(prompt("El producto seleccionado es Xiaomi, indique la cantidad"));
+      total += calcularTotal(seleccionarCantidad, 50000);
+      break;
+    case 4:
+      seleccionarCantidad = Number(prompt("El producto seleccionado es Nokia, indique la cantidad"));
+      total += calcularTotal(seleccionarCantidad, 65000);
+      break;
+    case 5:
+      seleccionarCantidad = Number(prompt("El producto seleccionado es Motorola, indique la cantidad"));
+      total += calcularTotal(seleccionarCantidad, 120000);
+      break;
+    default:
+      console.warn("Opción no válida. Por favor, seleccione un producto válido.");
+      break;
+  }
+  productos = Number(prompt("1-Samsung $130000 2-Iphone $150000 3-Xiaomi $50000 4-Nokia $65000 5-Motorola $120000"));
+  console.log(seleccionarCantidad)
 }
 
-console.log("Mostrando mensaje.!!");
-console.log("Mostrando mensaje.!!");
-console.log("Mostrando mensaje.!!");
-console.log("Mostrando mensaje.!!");
-console.log("Mostrando mensaje.!!");
+console.log("El total de la compra es de: $" + total);
 
-Aca la declaramos
-function enviarMensaje(){
-    console.log("Mostrando mensaje.!!");
-}
+const envio = () => {
+  if (total >= 100000) {
+    console.log("El envío es gratuito.");
+  } else {
+    console.log("El costo del envío es de 5000.");
+  }
+};
+
+envio();
+
+const metodoDePago = () => {
+  let metodo = prompt("Ingrese el método de pago: tarjeta o efectivo");
+  if (metodo == "tarjeta") {
+    total *= 1.1;
+    console.log(`Total con recargo de tarjeta: $${total.toFixed(2)}`);
+  } else if (metodo == "efectivo") {
+    total *= 0.85;
+    console.log(`Total con descuento del 15%: $${total.toFixed(2)}`);
+  } else {
+    console.error("Método de pago no reconocido.");
+  }
+};
+
+metodoDePago();
