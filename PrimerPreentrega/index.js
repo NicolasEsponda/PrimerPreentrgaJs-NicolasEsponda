@@ -65,3 +65,5 @@ const metodoDePago = () => {
 };
 
 metodoDePago();
+
+alert ("¡gracias por su compra, vuelva pronto!")
